@@ -1,0 +1,9 @@
+<p>consult-activite works!</p>
+<h1>Test récuperation des paramétres</h1>
+<h3 *ngIf="update===false">1: paramétre 1 trasmis: <b> {{objectif}} </b> {{v}}</h3>
+<h3 *ngIf="update===true">1: paramétre 1 trasmis: <input type="text" [(ngModel)]="objectif" /></h3>
+<h3 *ngIf="v1">2: paramétre 2 trasmis: {{v1}}</h3>
+<button (click)="remove()">Supprimer</button>
+<button (click)="updateField()" *ngIf="update===false">Modifier</button>
+<button (click)="save()" *ngIf="update===true">Sauvegarder</button>
+<button (click)="retour()">Retour</button>

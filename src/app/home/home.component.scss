@@ -9,9 +9,11 @@
 
 .color-dark {
     background: #2885C4;
+    transform: rotate(2deg);
 }
 .color-light {
-    background: #57B3F1,
+    background: #57B3F1;
+    transform: rotate(-2deg);
 }
 
 input.txt{

@@ -3,6 +3,8 @@ import {
   trigger, style,
   transition, animate, keyframes, query, stagger
 } from '@angular/animations';
+import { Router } from '@angular/router';
+import { ActiviteService } from '../services/activite.service';
 
 
 @Component({
@@ -22,19 +24,30 @@ export class HomeComponent implements OnInit {
   nbItems: number = 0;
   btnText: string = "Ajouter un élément";
   objectifsText: string;
-  objectifs: string[] = [];
+  
+  t=[];
 
-  constructor() { }
+  constructor(private monRouteur : Router, private activiteService: ActiviteService ) {
+    
+
+   }
 
   ngOnInit() {
-    this.nbItems = this.objectifs.length;
+    this.nbItems = this.activiteService.getLength();
+    this.t = this.activiteService.getObjectifs();
   }
   ajoutItem(item: string) {
     //console.log("***** "+item);
-    this.objectifs.push(item);
-    this.nbItems = this.objectifs.length;
+    this.activiteService.pushActivite(item);
+    this.nbItems = this.activiteService.getLength();
     //return this.nbItems;
     this.objectifsText = "";
+    setTimeout(()=> {
+      //this.monRouteur.navigate(['/about']);
+    }, 1000 );
+
+
+
     /*
         for (let i=0;i<this.objectifs.length;i++)
         {
@@ -44,10 +57,12 @@ export class HomeComponent implements OnInit {
   }
 
   ajoutItemBis() {
+    /*
     this.objectifs.push(this.objectifsText);
     this.nbItems = this.objectifs.length;
     //return this.nbItems;
     this.objectifsText = "";
+    */
   }
 
 }

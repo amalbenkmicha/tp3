@@ -2,6 +2,8 @@
     <li><a routerLink="/">Accueil</a></li>
 
     <li><a routerLink="/about">About</a></li>
+    <li><a href="">About2</a></li>
+    <!--href charge toute la page alors que routerlink charge une partie de page-->
 </ul>
 
 
@@ -16,7 +18,7 @@
     </div>
 
 </div>
-<div class="container color-light" [@animobjectifs]="objectifs.length">
+<div class="container color-light" [@animobjectifs]="t.length">
 
     <div class="col">
         <p class="sm">Un nouvel élément de liste</p>
@@ -36,8 +38,8 @@
           {{'Bonjour '+elt}}
         </p>
     -->
-        <p class="life-container" *ngFor="let ob of objectifs">
-            {{ob}}
+        <p class="life-container" *ngFor="let ob of t;let i = index" >
+            {{ob}} <a routerLink="/consultAct/{{i}}">Go To consult Act</a>
         </p>
     </div>
 </div>

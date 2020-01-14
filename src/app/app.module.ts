@@ -9,12 +9,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { ConsultActiviteComponent } from './consult-activite/consult-activite.component';
+import { ActiviteService } from './services/activite.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
+    ConsultActiviteComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,10 @@ import { AboutComponent } from './about/about.component';
     FormsModule,
     BrowserAnimationsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+   ActiviteService
+  ],
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }
